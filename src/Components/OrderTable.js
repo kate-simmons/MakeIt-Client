@@ -5,6 +5,7 @@ function OrderTable({ order }) {
   // this order prop comes form parent here which is... Orders page
   // every order will have its not information which will be added to table below
   const { date, cartItems, totalPrice, address } = order;
+  console.log(cartItems);
   return (
     <div className={`${style.order} poppins border `}>
       <h3 className={style.orderDate}>Ordered On: &nbsp; {date}</h3>
@@ -12,7 +13,7 @@ function OrderTable({ order }) {
         <thead>
           <tr>
             <th>Item</th>
-            {cartItems[0].selected?.length ? <th>Ingredients</th> : null}
+            <th>Ingredients</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Total Price</th>
@@ -27,10 +28,10 @@ function OrderTable({ order }) {
                   {item.packet ? <p>packet (1 Serving)</p> : null}
                 </div>
               </td>
-              {cartItems[0].selected?.length ? (
+              {item.selected?.length ? (
                 <td className="w-[250px] px-2 py-4">
                   <ol className="text-left text-[12px] ">
-                    {cartItems[0].selected.map((sel, k) => (
+                    {item.selected.map((sel, k) => (
                       <li key={k}>
                         {k + 1}.&nbsp;
                         {sel}
@@ -38,7 +39,7 @@ function OrderTable({ order }) {
                     ))}
                   </ol>
                 </td>
-              ) : null}
+              ) : <td>-</td>}
 
               <td>₹ {item.price}</td>
               <td>{item.qty}</td>
@@ -47,7 +48,7 @@ function OrderTable({ order }) {
           ))}
           <tr className="text-right">
             <td
-              colSpan={cartItems[0].selected?.length ? 5 : 4}
+              colSpan="5"
               className="border-t border-gray-200"
             >
               <p className="font-semibold pr-7">
@@ -57,7 +58,7 @@ function OrderTable({ order }) {
           </tr>
           <tr className={style.lastRow}>
             <td
-              colSpan={cartItems[0].selected?.length ? 5 : 4}
+              colSpan="5"
               className="border-t border-gray-200"
             >
               <p>Delivery Fee: ₹ {0}/- </p> <p>Platform Fee: ₹ {3}/- </p>
