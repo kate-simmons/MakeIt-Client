@@ -11,12 +11,12 @@ function Footer() {
         </div>
         <div className="mt-4 cursor-default">
           <p className="font-semibold">Contact us</p>{" "}
-          <p className="font-thin">Help & Support</p>{" "}
-          <p className="font-thin">Partner with us</p>
+          <p className="font-thin">022 1234 5678/ 7303070303</p>{" "}
+          <p className="font-thin">makeit2103@gmail.com</p>
         </div>
         <div className="mt-4 cursor-default">
           <p className="font-semibold">We deliver to:</p>{" "}
-          <p className="font-thin">Delhi</p>{" "}
+          <p className="font-thin">India</p>{" "}
         </div>
       </div>
     </div>
